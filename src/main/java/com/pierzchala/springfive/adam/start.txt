@@ -1,0 +1,24 @@
+Spring initializer
+At the  beginning: devtools, web, thymeleaf
+
+http://localhost:8080
+
+devtools:
+Zgodnie z nazwą, DevTools zapewnia programistom Springa pewne narzędzia użyteczne
+na etapie tworzenia aplikacji. Wśród tych narzędzi znajdziesz m.in.:
+ możliwość automatycznego ponownego uruchomienia aplikacji po wprowadzeniu
+zmiany w kodzie źródłowym;
+ możliwość automatycznego odświeżenia przeglądarki WWW, gdy zmianie
+ulegnie przeznaczony dla niej zasób (szablon, JavaScript, arkusz stylów itd.);
+ możliwość automatycznego wyłączenia bufora szablonu;
+ możliwość wykorzystania wbudowanej konsoli H2, jeśli została użyta baza danych
+H2.
+
+Jeżeli
+chcesz dowiedzieć się więcej na temat Spring Cloud, sugeruję sięgnięcie po książkę
+Spring Microservices in Action (https://www.manning.com/books/spring-microservices-
+-in-action) napisaną przez Johna Carnella i wydaną przez Manning w 2017 r.
+
+
+#H2
+
