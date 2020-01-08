@@ -19,6 +19,22 @@ chcesz dowiedzieć się więcej na temat Spring Cloud, sugeruję sięgnięcie po
 Spring Microservices in Action (https://www.manning.com/books/spring-microservices-
 -in-action) napisaną przez Johna Carnella i wydaną przez Manning w 2017 r.
 
+#buforowanie szablonów działa na kod w src/ . Jeżeli dodam nowe zależności, trzeba zrestartować aplikacje.
 
 #H2
 
+
+#LiveReload
+
+#lombok
+@Data na poziomie klasy została dostarczona przez bibliotekę Lombok i nakazuje
+jej wygenerowanie wszystkich brakujących metod, a także konstruktora akceptującego
+argumenty w postaci właściwości zdefiniowanych jako final.
+
+#szablony #Thymeleaf
+Nazwa szablonu jest określana na podstawie logicznej nazwy widoku, prefiksu
+/templates/ i postfiksu .html. W efekcie w omawianym przykładzie ścieżka dostępu do
+szablonu to /templates/home.html. Dlatego umieść szablon w projekcie jako plik /src/
+main/resources/templates/home.html. Teraz przystąpisz do tworzenia pliku tego szablonu.
+
+55
