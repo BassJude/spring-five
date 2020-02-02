@@ -1,0 +1,60 @@
+#szablony #Thymeleaf
+Nazwa szablonu jest określana na podstawie logicznej nazwy widoku, prefiksu
+/templates/ i postfiksu .html. W efekcie w omawianym przykładzie ścieżka dostępu do
+szablonu to /templates/home.html. Dlatego umieść szablon w projekcie jako plik /src/
+main/resources/templates/home.html. Teraz przystąpisz do tworzenia pliku tego szablonu.
+
+#p #span
+Jeśli istnieje atrybut żądania o kluczu message i chcesz go za pomocą Thymeleaf wygenerować
+w postaci znacznika HTML-a <p>, wówczas możesz skorzystać z następującego szablonu:
+
+<p th:text="${message}">Miejsce zarezerwowane dla wiadomości.</p>
+<span th:text="${serverTime}" />
+
+Po wygenerowaniu treści w postaci dokumentu HTML-a zawartość znacznika <p>
+    będzie zastąpiona wartością serwletu atrybutu żądania o kluczu message.
+    Atrybut th:text
+    jest dostarczany przez Thymeleaf i przeprowadza operację zastąpienia wartości.
+
+#for #foreach
+th:each, przeprowadzający iterację przez kolekcję elementów i generujący kod HTML-a dla każdego jej elementu.
+
+Na przykład aby wygenerować listę składników typu wrap, można skorzystać z przedstawionego tutaj fragmentu kodu HTML-a.
+
+<h3>Wybierz rodzaj mąki:</h3>
+<div th:each="ingredient : ${wrap}"> // w ${} jest kolekcja z modelu. ingredient to jeden obiekt z kolecji
+<input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+<span th:text="${ingredient.name}">SKŁADNIK</span><br/>
+</div>
+przykladowy wynik wynikiem moze byc jedna w iteracji:
+<div>
+<input name="ingredients" type="checkbox" value="FLTO" />
+<span>pszenna</span><br/>
+</div>
+
+W tym przypadku atrybut th:each w znaczniku <div> został użyty do wielokrotnego
+wygenerowania tego znacznika dla każdego elementu kolekcji wymienionej w atrybucie
+wrap żądania. Podczas iteracji element składnika zostaje dołączony do zmiennej
+Thymeleaf o nazwie ingredient.
+
+<tbody>
+    <tr th:each="student: ${students}">
+        <td th:text="${student.id}" />
+        <td th:text="${student.name}" />
+    </tr>
+</tbody>
+
+#input
+<input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+
+#if
+<td>
+    <span th:if="${student.gender} == 'M'" th:text="Male" />
+    <span th:unless="${student.gender} == 'M'" th:text="Female" />
+</td>
+
+#switch
+<td th:switch="${student.gender}">
+    <span th:case="'M'" th:text="Male" />
+    <span th:case="'F'" th:text="Female" />
+</td>
