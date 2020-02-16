@@ -39,6 +39,7 @@ public class RecruitmentTask {
                 continue;
             }
             canWeSortBallsInRightOrder = false;
+            break;
         }
 
         System.out.println("Czy można ułożyć kule w żądanej kolejności: " + (canWeSortBallsInRightOrder ? "TAK" : "NIE"));
