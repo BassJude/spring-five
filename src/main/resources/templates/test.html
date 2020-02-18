@@ -7,6 +7,7 @@
 </head>
 <body>
 <p>Test</p>
+<p th:text="${message}">Miejsce zarezerwowane dla wiadomości.</p>
 <div th:each="ingredient : ${ingredient}">
     <label>
         <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
