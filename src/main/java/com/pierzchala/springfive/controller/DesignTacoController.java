@@ -2,22 +2,22 @@ package com.pierzchala.springfive.controller;
 
 import com.pierzchala.springfive.tacos.Ingredient;
 import com.pierzchala.springfive.tacos.Taco;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Slf4j
+
 @Controller
 @RequestMapping("/design")
 public class DesignTacoController {
+
+    private Logger LOGGER = LoggerFactory.getLogger("Logger");
 
     @GetMapping
     public String showDesignForm(Model model) {
@@ -37,12 +37,13 @@ public class DesignTacoController {
         for (Ingredient.Type type : types) {
 
             model.addAttribute(type.toString().toLowerCase(),
-            filterByType(ingredients, type));
+                    filterByType(ingredients, type));
 
         }
         model.addAttribute("design", new Taco());
         return "design";
     }
+
     private List<Ingredient> filterByType(List<Ingredient> ingredients, Ingredient.Type type) {
 
         return ingredients.stream()
@@ -55,12 +56,13 @@ public class DesignTacoController {
     public String processDesign(Taco taco) {
 // Zapisanie projektu przygotowanego taco…
 // Tym się zajmiesz w rozdziale 3.
-        log.info("Przetwarzanie projektu taco: ");
+        LOGGER.info("Przetwarzanie projektu taco: ");
+
         return "redirect:/orders/current";
     }
 
     @GetMapping("/test")
-    public String test(Model model){
+    public String test(Model model) {
 
         List<Ingredient> ingredients = Arrays.asList(
                 new Ingredient("FLTO", "pszenna", Ingredient.Type.WRAP),
@@ -74,7 +76,8 @@ public class DesignTacoController {
                 new Ingredient("SLSA", "pikantny sos pomidorowy", Ingredient.Type.SAUCE),
                 new Ingredient("SRCR", "śmietana", Ingredient.Type.SAUCE)
         );
-        model.addAttribute("ingredient",ingredients);
+        model.addAttribute("ingredient", ingredients);
+        model.addAttribute("message", "This is test of message");
 
         return "test";
     }

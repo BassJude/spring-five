@@ -1,7 +1,9 @@
 Spring initializer
 At the  beginning: devtools, web, thymeleaf
 
-http://localhost:8080
+http://localhost:8000
+java -jar
+mvn spring-boot:run
 
 devtools:
 Zgodnie z nazwą, DevTools zapewnia programistom Springa pewne narzędzia użyteczne
@@ -30,6 +32,12 @@ Spring Microservices in Action (https://www.manning.com/books/spring-microservic
 @Data na poziomie klasy została dostarczona przez bibliotekę Lombok i nakazuje
 jej wygenerowanie wszystkich brakujących metod, a także konstruktora akceptującego
 argumenty w postaci właściwości zdefiniowanych jako final.
+!!!
+Konieczne jest również dodanie Lombok jako rozszerzenia dla środowiska IDE, w przeciwnym
+razie będziesz otrzymywał komunikaty błędów informujące o brakujących metodach
+i niezdefiniowanych właściwościach final . Odwiedź witrynę https://projectlombok.org/,
+w której znajdziesz informacje o instalacji Lombok w wybranym środowisku IDE.
+
 
 #szablony #Thymeleaf
 Nazwa szablonu jest określana na podstawie logicznej nazwy widoku, prefiksu

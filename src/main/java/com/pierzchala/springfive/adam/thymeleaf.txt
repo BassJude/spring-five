@@ -47,6 +47,10 @@ Thymeleaf o nazwie ingredient.
 #input
 <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
 
+*{name}
+np. <input type="text" th:field="*{name}"/>
+dodaje id="name" i name = "name" do inputa
+
 #if
 <td>
     <span th:if="${student.gender} == 'M'" th:text="Male" />
