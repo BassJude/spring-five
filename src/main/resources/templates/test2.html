@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Test</p>
+<p th:text="${message}">Miejsce zarezerwowane dla wiadomości.</p>
+
+<form method="POST" th:action="@{/test}" th:object="${order}">
+    <label for="name">Imię i nazwisko: </label>
+    <input type="text" th:field="*{name}"/>
+    <label for="street">Ulica: </label>
+    <input type="text" th:field="*{street}"/>
+
+
+
+    <input type="submit" value="Złóż zamówienie"/>
+
+</form>
+
+</body>
+</html>

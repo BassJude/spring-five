@@ -62,3 +62,39 @@ dodaje id="name" i name = "name" do inputa
     <span th:case="'M'" th:text="Male" />
     <span th:case="'F'" th:text="Female" />
 </td>
+
+#walidacja
+1. Standardowe adnotacje w klasie
+2.
+    @PostMapping
+    public String processOrder(@Valid Order order, Errors errors) {
+        if (errors.hasErrors()) {
+            return "orderForm";
+        }
+
+
+        return "redirect:/";
+    }
+3. Wyświetlanie:
+
+// Wyświetli się błąd jaki podamy w message
+<label for="ccNumber">Numer karty kredytowej: </label>
+<input type="text" th:field="*{ccNumber}"/>
+<span class="validationError"
+th:if="${#fields.hasErrors('ccNumber')}"
+th:errors="*{ccNumber}">Błąd numeru karty kredytowej.</span>
+
+//
+<span class="validationError" th:if="${#fields.hasErrors('ccNumber')}" th:errors="*{ccNumber}">Błąd numeru karty kredytowej.</span>
+//
+<span class="validationError" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+
+element <span> wykorzystuje atrybut th:if do ustalenia, czy dany element w ogóle powinien zostać wyświetlony. W omawianym fragmencie
+kodu metoda hasErrors() właściwości fields sprawdza, czy wystąpił jakikolwiek błąd
+w polu ccNumber . Jeżeli tak, wyświetlony będzie element <span> .
+
+Atrybut th:errors odwołuje się do pola ccNumber i przyjmując założenie o wystą-
+pieniu jakichkolwiek błędów, zastępuje treść miejsca zarezerwowanego elementu <span>
+komunikatem procesu weryfikacji danych.
+
+

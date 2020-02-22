@@ -2,3 +2,7 @@ h1 {
     background-color: #40ee3c;
     color: black;
 }
+
+.validationError {
+    color: red;
+}

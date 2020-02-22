@@ -10,8 +10,13 @@
 <h1>Przygotuj własne taco!</h1>
 
 <img th:src="@{/images/earth.png}" th:height="200"  width="200"/>
-<!--TODO th:object="${design} ???-->
-<form method="POST" th:object="${design}">
+<!--TODO th:object="${design} ??? raczej taco-->
+<form method="POST" th:object="${taco}">
+        <div th:if="${#fields.hasErrors()}">
+    <span class="validationError">
+    Usuń wymienione problemy i spróbuj ponownie.
+    </span>
+        </div>
     <div class="grid">
         <div class="ingredient-group" id="wraps">
             <h3>Wybierz rodzaj mąki:</h3>
